@@ -61,6 +61,3 @@ Create a reporting tool that prints out reports (in plain text) based on the dat
   ```
   results should be identical to the thoose the sampleReport file provided.
  
-  
-  ### Adding reports:
-  See comments in the [newreports.py file(https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/news/newsreports.py)   for instructions on adding new reports and explaination of code.
