@@ -35,10 +35,9 @@ Create a reporting tool that prints out reports (in plain text) based on the dat
   ```
     $ cd /vagrant/news
   ```
-   4. All of the file related to this project are in the following directory.
-    ```
-     [My Log_Analysis_Project files](https://github.com/mdjolieca/fullstack-nanodegree-vm/tree/master/vagrant/news)
-   ```
+  4. All of the files related to this project are in the [/vagrant/news](https://github.com/mdjolieca/fullstack-nanodegree-vm/tree/master/vagrant/new) directory
+  
+  
 #### Setting up the database:
 
    1. Unzip the /vagrant/news/newsdata.zip  file.  
@@ -64,4 +63,4 @@ Create a reporting tool that prints out reports (in plain text) based on the dat
  
   
   ### Adding reports:
-  See comments in the [newreports.py file](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/news/newsreports.py)   for instructions on adding new reports and explaination of code.
+  See comments in the [newreports.py file(https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/news/newsreports.py)   for instructions on adding new reports and explaination of code.
