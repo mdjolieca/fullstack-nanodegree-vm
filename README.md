@@ -35,7 +35,7 @@ Create a reporting tool that prints out reports (in plain text) based on the dat
   ```
     $ cd /vagrant/news
   ```
-  4. All of the files related to this project are in the [/vagrant/news](https://github.com/mdjolieca/fullstack-nanodegree-vm/tree/master/vagrant/new) directory
+  4. All of the files related to this project are in the [/vagrant/news](https://github.com/mdjolieca/fullstack-nanodegree-vm/tree/master/vagrant/news) directory
   
   
 #### Setting up the database:
