@@ -59,5 +59,5 @@ Create a reporting tool that prints out reports (in plain text) based on the dat
   ```
     $ python3  newsreports.py
   ```
-  results should be identical to the thoose the sampleReport file provided.
+  results should be identical to the thoose the [sampleReport](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/news/sampleReport)  file provided.
  
