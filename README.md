@@ -18,7 +18,7 @@ Create a reporting tool that prints out reports (in plain text) based on the dat
   
 #### Setup Project:
   1. Install Vagrant and VirtualBox
-  2. Download or Clone [fullstack-nanodegree-vm](https://github.com/mdjolieca/fullstack-nanodegree-vm/tree/Log_Analysis_Project)     repository.
+  2. Download or Clone [fullstack-nanodegree-vm](https://github.com/mdjolieca/fullstack-nanodegree-vm) repository.
   
 #### Launching the Virtual Machine:
   1. Launch the Vagrant VM inside Vagrant sub-directory in the downloaded fullstack-nanodegree-vm repository using command:
@@ -35,8 +35,10 @@ Create a reporting tool that prints out reports (in plain text) based on the dat
   ```
     $ cd /vagrant/news
   ```
-     all of the file related to this project are in this directory.
-  
+   4. All of the file related to this project are in the following directory.
+    ```
+     [My Log_Analysis_Project files](https://github.com/mdjolieca/fullstack-nanodegree-vm/tree/master/vagrant/news)
+   ```
 #### Setting up the database:
 
    1. Unzip the /vagrant/news/newsdata.zip  file.  
@@ -62,4 +64,4 @@ Create a reporting tool that prints out reports (in plain text) based on the dat
  
   
   ### Adding reports:
-  Please see comments in the newreports.py file for instructions on adding new reports.
+  See comments in the [newreports.py file](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/news/newsreports.py)   for instructions on adding new reports and explaination of code.
