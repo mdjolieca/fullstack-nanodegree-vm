@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+  <title>New Category</title>
+  {% include "head.html" %}
+</head>
+<body>
+  {% include "header.html" %}
+  {% include "flash.html" %}
+  {% include "links.html" %}
+
+
+<!-- portfolio work section contains header and flex box menu of work -->
+  <div id="portfolio-work" class="portfolio-work">
+    <div class="portfolio-padding padding">
+     <!-- flex box menu using figures with links within fig captions -->
+     <div id="portfolio-menu" class="portfolio-menu"> 
+      <form class="portfolio-menu" action="{{url_for('newCategory')}}" method = 'POST'>
+       <!-- menu item -->
+       <div class="portfolio-menu-item2">
+           <p class="portfolio-menu-p">Name:</p>
+          <input class="portfolio-menu-input" type ='text' name='name'  />
+       </div>
+       <div class="portfolio-menu-item2">
+           <p class="portfolio-menu-p">Description:</p>
+          <textarea class="portfolio-menu-input" rows="5" col="60"; name='description' >
+         </textarea>
+        </div>
+        <!-- menu item -->
+      <button class="portfolio-menu-button" type="submit">Add Category</button>
+      <button  class="portfolio-menu-button" type="button">
+      <a href= '{{url_for('showCatalog')}}'>Cancel</a>
+       </button>
+      </br>
+     </form>
+      <!--end menu of work items -->
+      </div>
+    <!--end portfolio padding div -->
+   </div>
+  <!-- end portfolio work section -->
+  </div>
+
+</body>
+</html>

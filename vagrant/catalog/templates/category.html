@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Category</title>
+  {% include "head.html" %}
+</head>
+<body>
+  {% include "header.html" %}
+  {% include "flash.html" %}
+  <!-- Display correct links if user is logged in.
+       This is necessary because this page is displayed
+       to any non owner regardless of login -->
+  {% if user > 0 %}
+   {% include "links.html" %}
+  {% else %}
+   {% include "links_public.html" %}
+  {% endif %}
+
+  <div id = "links1" class = "links padding">
+   {% if user == 2 %}
+      </br>
+      <button type="button">
+        <a href='{{url_for('newItem', category_id = category.id)}}'>
+        Add An Item 
+        </a>
+      </button>
+      <button type="button">
+        <a href='{{url_for( 'editCategory', category_id = category.id)}}'>
+        edit Category
+        </a>
+      </button>
+     <button type="button">
+        <a href='{{url_for('deleteCategory', category_id = category.id)}}'>
+        Delete this Category
+        </a>
+      </button>
+     {% endif %}
+  </div>
+
+
+
+  <section id="intro" class="intro">
+    <div class="intro-padding padding">
+      <div class="intro-portrait-div">
+        <img class="intro-portrait" alt="profile pic" src="{{creator.picture}}">
+      </div>
+        <div class="intro-about-me-div">
+        <h3 class="intro-about-me-h3"> {{category.name }} </h3>
+        <p class="intro-about-me-p"> This Category was created by {{ creator.name }}.
+         {{category.description }} 
+       </p>
+      </div>
+    </div> 
+  </section>
+  <!-- portfolio work section contains header and flex box menu of work -->
+  <div id="portfolio-work" class="portfolio-work">
+    <div class="portfolio-padding padding">
+     <!-- flex box menu using figures with links within fig captions -->
+      <div id="portfolio-menu" class="portfolio-menu">
+        <!-- menu item -->
+        {% for item in items %}
+        <div class="portfolio-menu-item">
+          <a href='{{url_for('showItem', item_id = item.id)}}'>
+            {{item.name}}
+          </a>
+        </div>
+       {% endfor %}
+        <!-- menu item -->
+      <!--end menu of work items -->
+      </div>
+    <!--end portfolio padding div -->
+   </div>
+  <!-- end portfolio work section -->
+  </div>
+</body>
+</html>

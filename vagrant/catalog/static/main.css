@@ -1,0 +1,274 @@
+@media screen and (max-width: 319px) {
+   body {
+     width: 319px;
+     overflow: scroll;
+   }
+}
+
+@media screen and (max-width: 900px) {
+   .header-title1 {
+      font:  20px "Open Sans", sans-serif;
+      margin: 2%;
+   }
+
+   .header-title3 {
+      font: 300 smaller "Droid Serif", serif;
+      margin: 2%;
+   }
+
+    .intro-about-me-h3 {
+      font-size: 18px;
+    }
+
+    .intro-about-me-p {
+      font-size: 14px;
+    }
+
+    .padding {
+      margin-right: 0;
+      margin-left: 0;
+      max-width: 100%;
+    }
+ }
+
+@media screen and (min-width: 901px) {
+   .header-title1 {
+      font: 30px "Open Sans", sans-serif;
+      margin: 0;
+   }
+
+   .header-title3 {
+      font: 300 large "Droid Serif", serif;
+      margin: 0;
+   }
+
+    .intro-about-me-h3 {
+      font-size: 22px;
+    }
+
+    .intro-about-me-p {
+      font-size: 18px;
+    }
+}
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+   .padding {
+      margin-right: 15%;
+      margin-left: 15%;
+      max-width: 100%;
+    } 
+}
+
+@media screen  and (min-width: 1201px) {
+    .padding {
+      margin-right: 25%;
+      margin-left: 25%;
+      max-width: 100%;
+    }
+}
+
+body {
+   background-color: #f6f6f6;
+   outline: none;
+   margin: 0;
+}
+
+.flash {
+   font: 15px "Open Sans", sans-serif;
+}
+.header {
+   max-width: 100%;
+   height: auto;
+   background-color: white;
+   z-index: 1;
+   box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+}
+
+.header-padding {
+   height: auto;
+   display: flex
+}
+
+
+.header-logo-div {
+   float: left;
+   width: 9%;
+   height: auto;
+   border-radius: 10%;
+   margin: 2%;
+}
+
+.header-logo {
+   max-width: 100%;
+   height: auto;
+   float: left;
+   margin: 15%;
+}
+
+.header-title-div {
+   float: right;
+   width: 88%;
+   height: auto;
+   margin: 2%;
+}
+
+.header-title1 {
+   max-width: 100%;
+   height: auto;
+   text-align: right;
+   clear: right;
+   float: right;
+   color: #2d3c49;
+}
+
+.header-title3 {
+   max-width: 100%;
+   height: auto;
+   text-align: right;
+   clear: right;
+   float: right;
+   color: #2d3c49;
+}
+
+.intro {
+   width: 100%;
+   height: auto;
+}
+
+.intro-padding {
+   margin-top: 2%;
+   margin-bottom: 2%;
+   background-color: white;
+   border: solid 1px #dbe2e8 !important;
+   display: flex;
+   box-shadow: 0 0 10px 4px rgba(0,0,0,0.18) !important;
+}
+
+
+.intro-portrait-div {
+   max-width: 25%; 
+   float: left;
+}
+
+.intro-portrait {
+   max-width: 80%;
+   height: auto;
+   margin: 10%;
+   border-radius: 10%;
+   box-shadow: 0 0 10px 4px rgba(0,0,0,0.18);;
+}
+
+
+.intro-about-me-div {
+   float: right;
+   max-width: 75%;
+   margin: 2%;
+}
+
+.intro-about-me-h3 {
+   max-width: 100%;
+   height: auto;
+   margin: 2%;
+   font-family: "Open Sans",sans-serif;
+   color: #58646d;
+   text-overflow: ellipsis;
+   text-align: left;
+   vertical-align: baseline;
+}
+
+.intro-about-me-p {
+   max-width: 100%;
+   height: auto;
+   margin: 2%;
+   font-family: "Open Sans",sans-serif;
+   color: #58646d;
+   text-overflow: ellipsis;
+   text-align: left;
+   vertical-align: baseline;
+}
+
+.intro-about-me-a {
+   color: #7d97ad;
+}
+
+.portfolio-work {
+   width: 100%;
+   height: auto;
+}
+
+.portfolio-padding {
+   background-color: lightskyblue;
+   margin-top: 2%;
+   margin-bottom: 2%;
+   box-shadow: 0 0 10px 4px rgba(0,0,0,0.18) !important;
+   border: solid 1px #dbe2e8 !important;
+}
+
+.portfolio-menu {
+   display: inline;
+   max-width: 100%;
+   margin: 2%;
+}
+
+.portfolio-menu-item {
+   max-width: 100%;
+   height: auto;
+   text-align: center;
+   font-family: Arial, sans-serif;
+   border-radius: 10%;
+   padding: 2%;
+   margin: 3%;
+   box-shadow: 0 0 10px 4px rgba(0,0,0,0.18) !important;
+   background-color: white;
+   border: solid 1px #dbe2e8 !important;
+}
+
+.portfolio-menu-item1 {
+   max-width: 100%;
+   height: auto;
+   text-align: left;
+   font-family: Arial, sans-serif;
+   border-radius: 10%;
+   padding: 2%;
+   margin: 3%;
+   box-shadow: 0 0 10px 4px rgba(0,0,0,0.18) !important;
+   background-color: white;
+   border: solid 1px #dbe2e8 !important;
+}
+
+.portfolio-menu-item2 {
+   max-width: 100%;
+   height: auto;
+   text-align: left;
+   font-family: Arial, sans-serif;
+   padding: 2%;
+   margin: 3%;
+   box-shadow: 0 0 10px 4px rgba(0,0,0,0.18) !important;
+   background-color: white;
+   border: solid 1px #dbe2e8 !important;
+
+}
+
+.portfolio-menu-input {
+   font: 15px "Open Sans", sans-serif;
+   display: inline;
+   width: 100%;
+   border-color: blue;
+   border-width: 2px;
+   background-color: lightyellow;
+   font-weight: bolder;
+}
+
+.portfolio-menu-p {
+   font-weight: bolder;
+}
+
+.portfolio-menu-button {
+   margin: 2%;
+}
+
+.portfolio-menu-logo {
+   max-width: 100%;
+   height: auto;
+}
+
+
