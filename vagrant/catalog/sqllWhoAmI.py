@@ -12,6 +12,7 @@ DBSessionMaker = sessionmaker(bind=engine)
 #create DB session for adding data to tables
 dbSession = DBSessionMaker()
 
+#print all users. 
 
 users = dbSession.query(User).all()
 for user in users:

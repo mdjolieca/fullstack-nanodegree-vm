@@ -31,7 +31,7 @@ CLIENT_ID = json.loads(
 APPLICATION_NAME ='Catalogue App'
 
 #Create anti-forgery state token
-@app.route('/login/')
+@app.route('/login')
 def login():
     state = ''.join(random.choice(string.ascii_uppercase + string.digits)
                     for x in xrange(32))
@@ -99,7 +99,10 @@ def gconnect():
         response = make_response(json.dumps('Current user is already connected.'),
                                  200)
         response.headers['Content-Type'] = 'application/json'
-        app.logger.error(response)
+        # udpate access token to new one from google. 
+        login_session['access_token'] = credentials.access_token
+        app.logger.debug(response)
+        # exit login here since user is already logged in 
         return response
 
     # Store the access token in the session for later use.
@@ -115,13 +118,14 @@ def gconnect():
     login_session['username'] = data['name']
     login_session['picture'] = data['picture']
     login_session['email'] = data['email']
+
     #Get user info from DB or add  or Update user
     dbUserID = User.getUserID(login_session['email'], dbSession)
     if not dbUserID:
         dbUserID = User.createUser(login_session, dbSession)
     else:
-        dbUserID = User.updateUser(dbUserID,login_session,dbSession)
-    
+        dbUserID = User.updateUser(dbUserID, login_session, dbSession)
+
     login_session['user_id'] = dbUserID
    
     output = ''
@@ -134,7 +138,7 @@ def gconnect():
     output +=  '150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
     return output
 
-@app.route('/gdisconnect/')
+@app.route('/gdisconnect')
 def gdisconnect():
     # get token for login_session
     access_token = login_session.get('access_token')
@@ -172,11 +176,9 @@ def gdisconnect():
 @app.route('/catalog/')
 def showCatalog():
     categories = Category.getCategories(dbSession)
-   
     userStatus = getUserStatus(None)
-    if userStatus > 0:
-        welcomeFlash()
-    
+    welcomeFlash(userStatus)
+    #userStatus determines public vs logged in user page view
     return render_template('catalog.html', categories=categories,user = userStatus)
     
 
@@ -184,18 +186,18 @@ def showCatalog():
 @app.route('/category/<int:category_id>/')
 def showCategory(category_id):
     category = Category.getCategory(category_id, dbSession)
+
     if category is None:
-        # only directly accessing url, with with bad data, 
+        # only directly accessing url, with bad data, 
         # causes this ignore and return to home. 
         return goHome()
 
-    items = Item.getCategoryItems(category_id, dbSession)
+    items = Item.getItems(category_id, dbSession)
     creator = User.getUser(category.user_id, dbSession)
 
     userStatus = getUserStatus(category.user_id)
-    if userStatus > 0:
-        welcomeFlash()
-
+    welcomeFlash(userStatus)
+    #userStatus determines public vs logged in user page view
     return render_template('category.html', items=items, 
     category=category,creator = creator, user=userStatus)
 
@@ -210,28 +212,26 @@ def showItem(item_id):
         return goHome()
 
     category = Category.getCategory(item.category_id, dbSession)
-
     userStatus = getUserStatus(category.user_id)
-    if userStatus > 0:
-        welcomeFlash()
-
+    welcomeFlash(userStatus)
+    
+    #userStatus determines public vs logged in user page view
     return render_template('item.html', item=item, user=userStatus)
     
 # Create a new category
 @app.route('/category/new/', methods=['GET', 'POST'])
 def newCategory():
-    if  not isLoggedIn():
+    if not isLoggedIn():
         notloggedInFlash()
         return goHome()
 
     if request.method == 'POST':
-        newCategory = Category(name=request.form['name'], description=request.form['description'],
-        user_id=login_session['user_id'])
-        dbSession.add(newCategory)
-        dbSession.commit()
-        actionFlash(newCategory.name, 'Added')
+        newCategory = Category.createCategory(
+        request.form, login_session, dbSession)
+        actionFlash(newCategory, 'Added')
         return goHome()
     else:
+        welcomeFlash(getUserStatus(None))
         return render_template('newCategory.html')
 
 
@@ -244,20 +244,18 @@ def editCategory(category_id):
         # causes this ignore and return to home. 
         return goHome()
 
-    if (getUserStatus(categoryToEdit.user_id)) != 2:
+    userStatus = getUserStatus(categoryToEdit.user_id)
+    if userStatus != 2:
         notOwnerFlash()
         return goHome()
-        
+
     if request.method == 'POST':
-        if request.form['name']:
-           categoryToEdit.name = request.form['name']
-        if request.form['description']:
-           categoryToEdit.description = request.form['description']
-        dbSession.add(categoryToEdit)
-        dbSession.commit()
-        actionFlash(categoryToEdit.name, 'edited')
+        categoryToEdit = Category.updateCategory(
+        request.form, categoryToEdit, dbSession)
+        actionFlash(categoryToEdit, 'edited')
         return redirect(url_for('showCategory', category_id=categoryToEdit.id))
     else:
+        welcomeFlash(userStatus)
         return render_template(
             'editCategory.html', category=categoryToEdit)
 
@@ -272,16 +270,17 @@ def deleteCategory(category_id):
         # causes this ignore and return to home. 
         return goHome()
 
-    if getUserStatus(categoryToDelete.user_id) != 2:
+    userStatus = getUserStatus(categoryToDelete.user_id)
+    if userStatus != 2:
         notOwnerFlash()
         return goHome()
 
     if request.method == 'POST':
-        dbSession.delete(categoryToDelete)
-        dbSession.commit()
-        actionFlash(categoryToDelete.name, 'deleted')
+        Category.deleteCategory(categoryToDelete, dbSession)
+        actionFlash(categoryToDelete, 'deleted')
         return goHome()
     else:
+        welcomeFlash(userStatus)
         return render_template(
             'deleteCategory.html', category=categoryToDelete)
 
@@ -297,56 +296,52 @@ def newItem(category_id):
         return goHome()
 
 
-    if (getUserStatus(itemCategory.user_id)) != 2:
+    userStatus = getUserStatus(itemCategory.user_id)
+    if userStatus != 2:
         notOwnerFlash()
         return goHome()
 
     if request.method == 'POST':
-        newItem = Item(name=request.form['name'], description=request.form[
-        'description'], price=request.form['price'], category_id=category_id)
-        dbSession.add(newItem)
-        dbSession.commit()
-        actionFlash(newItem.name,'added')
+        newItem = Item.createItem(request.form, 
+        itemCategory.id, dbSession)
+        actionFlash(newItem,'added')
         return redirect(url_for('showCategory', category_id=category_id))
     else:
+        welcomeFlash(userStatus)
         return render_template('newItem.html', category_id=category_id)
 
 
 #edit an item then display it 
 @app.route('/item/<int:item_id>/edit/', methods=['GET', 'POST'])
 def editItem(item_id):
+
     itemToEdit = Item.getItem(item_id, dbSession)
 
     if itemToEdit is None:
-        # only directly accessing url, with with bad data, 
+        # only directly accessing url, with bad data, 
         # causes this ignore and return to home. 
         return goHome()
 
     itemCategory =  Category.getCategory(itemToEdit.category_id, dbSession)
 
-    if (getUserStatus(itemCategory.user_id)) != 2:
+    userStatus = getUserStatus(itemCategory.user_id)
+    if userStatus != 2:
         notOwnerFlash()
         return goHome()
 
     if request.method == 'POST':
-        if request.form['name']:
-            itemToEdit.name = request.form['name']
-        if request.form['description']:
-            itemToEdit.description = request.form['description']
-        if request.form['price']:
-            itemToEdit.price = request.form['price']
-        dbSession.add(itemToEdit)
-        dbSession.commit()
-        actionFlash(itemToEdit.name,'edited')
+        itemToEdit = Item.updateItem(request.form, 
+        itemToEdit,dbSession)
+        actionFlash(itemToEdit,'edited')
         return redirect(url_for('showItem', item_id=itemToEdit.id))
     else:
-        welcomeFlash()
+        welcomeFlash(userStatus)
         return render_template('editItem.html', item=itemToEdit)
 
 
 #Delete and item then return to  parent category page
 @app.route('/item/<int:item_id>/delete/', methods=['GET', 'POST'])
-def deleteItem( item_id):
+def deleteItem(item_id):
     itemToDelete = Item.getItem(item_id, dbSession)
 
     if itemToDelete is None:
@@ -356,23 +351,29 @@ def deleteItem( item_id):
 
     itemCategory =  Category.getCategory(itemToDelete.category_id, dbSession)
    
-    if getUserStatus(itemCategory.user_id) != 2:
+    userStatus = getUserStatus(itemCategory.user_id)
+    if userStatus != 2:
         notOwnerFlash()
         return goHome()
 
     if request.method == 'POST':
-        dbSession.delete(itemToDelete)
-        dbSession.commit()
-        actionFlash(itemToDelete.name, 'deleted')
+        deleted = Item.deleteItem(itemToDelete, dbSession)
+        actionFlash(deleted, 'deleted')
         return redirect(url_for('showCategory', category_id=itemToDelete.category_id))
     else:
+        welcomeFlash(userStatus)
         return render_template('deleteItem.html', item=itemToDelete)
 
 #helper functions
 def goHome():
+    '''Homepage redirect'''
     return redirect(url_for('showCatalog'))
 
 def getUserStatus(user_id):
+     '''Returns 0 for loggged out
+                1 for logged in
+                2 for owner
+     '''
      status = 0
      if isLoggedIn():
         status = 1
@@ -386,24 +387,34 @@ def isLoggedIn():
     return True
 
 def isOwner(user_id):
+    '''parameter user_id is object.user_id 
+       from database table'''
     if (user_id is None or 
     user_id != login_session.get('user_id')):
         return False
     return True
 
-def welcomeFlash():
-    return flash("Logged in as %s" % login_session['username'])
 
+def welcomeFlash(userStatus):
+    if userStatus > 0:
+      return flash("Logged in as %s" % login_session['username'])
+    return None
+    
 def notOwnerFlash():
     return flash('You must be logged in as Category Owner to change'
     + ' an item or category ! Redirecting to Homepage...')
+
 def notloggedInFlash():
     return flash('You must be logged in to add a category ! Redirecting to Homepage...')
 
-def actionFlash(name, action):
-    return flash(name + " was " + action)
+def actionFlash(object, action):
+    if object is None:
+       return flash(action + " failed. Try again later.")
+    return flash(object.name + " was " + action)
 
 if __name__ == '__main__':
-    app.secret_key = 'super_secret_key'
-    app.debug = True
-    app.run(host='0.0.0.0', port=5000)
+
+       app.secret_key = 'super_secret_key'
+       app.debug = True
+       app.run(host='0.0.0.0', port=5000)
+

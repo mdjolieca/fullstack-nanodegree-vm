@@ -7,7 +7,13 @@
   {% include "header.html" %}
   {% include "flash.html" %}
   {% include "links.html" %}
-
+  <div id = "links1" class = "links padding">
+     </br>
+     <button type="button">
+      <a href='{{url_for('showCategory', category_id = item.category_id)}}'>
+       Return to Category
+      </a>
+   </div>
 
 <!-- portfolio work section contains header and flex box menu of work -->
   <div id="portfolio-work" class="portfolio-work">
@@ -33,8 +39,8 @@
         <!-- menu item -->
       <button class="portfolio-menu-button" type="submit">Submit Edit</button>
       <button  class="portfolio-menu-button" type="button">
-      <a href= '{{url_for('showCategory', category_id=item.category_id)}}'>Cancel</a>
-       </button>
+       <a href= '{{url_for('showItem', item_id=item.id)}}'>Cancel</a>
+      </button>
       </br>
      </form>
       <!--end menu of work items -->
