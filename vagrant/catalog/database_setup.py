@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 Base = declarative_base()
 
 # Running this file as script ,will Create database tables for catalouge
-# This class defines 3 Catalogue table Class (User, Category, Item)
+# This file defines 3 Catalogue table Classes (User, Category, Item)
 
 
 # Users table

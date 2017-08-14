@@ -13,7 +13,7 @@ session = DBSession()
 
 # Create sample users udate email with your gmail address.
 # the user name and picture will be updated on first login
-User0 = User(name="test user ", email="SOME_SOME@gmail.com",
+User0 = User(name="test user ", email="Your_email@gmail.com",
              picture=' ')
 session.add(User0)
 session.commit()
