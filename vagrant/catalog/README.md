@@ -25,6 +25,7 @@ edit and delete their own categories and items.
   * [Python3](https://www.python.org/)
   * [Vagrant](https://www.vagrantup.com/)
   * [VirtualBox](https://www.virtualbox.org/)
+  * [google Oauth Cient](https://console.developers.google.com/)
   
 #### Setup Project:
   1. Install Vagrant and VirtualBox
@@ -53,7 +54,7 @@ edit and delete their own categories and items.
    1. run the /vagrant/catalog/database_setup.py  script:
     ```
     $ python3 database_setup.py
-  ```
+    ```
   
    2. Load the data into the catalog database using the populate_db.py script. Before running this 
    script edit line [16](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/catalog/populate_db.py#L16)
@@ -64,7 +65,8 @@ edit and delete their own categories and items.
     $ vi populate_db.py   # besure to update line 16 as mentioned above
     $ python3 populate_db.py
   ```
-   3. Google Oauth Setup
+  
+   #### Google Oauth Setup:
         1. Go to your app's page in the Google APIs Console — https://console.developers.google.com/apis
         2. At top of dashboard home click 
         2. Choose Credentials from the menu on the left.
