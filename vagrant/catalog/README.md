@@ -66,17 +66,35 @@ edit and delete their own categories and items.
     $ python3 populate_db.py
   ```
   
-   #### Google Oauth Setup:
-        1. [GO to Google APIs Console —](https://console.developers.google.com/)
-        2. Follow the instruction is these screen captures:
-          ![alt text](/screencap/Capture.PNG "Description goes here")
-        2. At top of dashboard home click 
-        2. Choose Credentials from the menu on the left.
-        
-        3. Create an OAuth Client ID.
-        4. When you're presented with a list of application types, choose Web applicationite.
+#### Google Oauth Setup:
+   1. [GO to Google APIs Console —](https://console.developers.google.com/)
+   2. Follow the instruction is these screen captures:
+   </br>
+   <img center="left" src="screencap/Capture.PNG">
+   </br>   
+   <img center="left" src="screencap/Capture1.PNG">
+   </br>
+   <img center="left" src="screencap/Capture2.PNG">
+   </br>
+   <img center="left" src="screencap/Capture3.PNG">
+   </br>
+   <img center="left" src="screencap/Capture4.PNG">
+   </br>
+   <img center="left" src="screencap/Capture5.PNG">
+   </br>
+   <img center="left" src="screencap/Capture6.PNG">
+   </br>
+   <img center="left" src="screencap/Capture7.PNG">
+   </br>
+   <img center="left" src="screencap/Capture8.PNG">
+   </br>
+   <img center="left" src="screencap/Capture9.PNG">
+  
+  
+     
+
   
  
-  #### Run the Catalog App:
+#### Run the Catalog App:
 
  
