@@ -3,13 +3,20 @@
 
 ### Project Description
 
-You will develop an application that provides a list of items within a variety of categories as well as provide a user registration and authentication system. Registered users will have the ability to post, edit and delete their own categories and items.
+You will develop an application that provides a list of items within a variety of categories as well as
+provide a user registration and authentication system. Registered users will have the ability to post, 
+edit and delete their own categories and items.
 
 1. Why This Project?
-    Modern web applications perform a variety of functions and provide amazing features and utilities to their users; but deep down,   it’s really all just creating, reading, updating and deleting data. In this project, you’ll combine your knowledge of building dynamic websites with persistent data storage to create a web application that provides a compelling service to your users.
+    Modern web applications perform a variety of functions and provide amazing features and utilities to their
+    users; but deep down,   it’s really all just creating, reading, updating and deleting data. In this project, 
+    you’ll combine your knowledge of building dynamic websites with persistent data storage to create a web 
+    application that provides a compelling service to your users.
 
 2. What Will I Learn?
-   You will learn how to develop a RESTful web application using the Python framework Flask along with implementing third-party OAuth authentication. You will then learn when to properly use the various HTTP methods available to you and how these methods relate to CRUD (create, read, update and delete) operations.
+   You will learn how to develop a RESTful web application using the Python framework Flask along with implementing
+   third-party OAuth authentication. You will then learn when to properly use the various HTTP methods available
+   to you and how these methods relate to CRUD (create, read, update and delete) operations.
 
 
 ### How to Run?
@@ -36,31 +43,35 @@ You will develop an application that provides a list of items within a variety o
   ```
   3. Change directory to /vagrant/news and look around with ls.
   ```
-    $ cd /vagrant/news
+    $ cd /vagrant/catalog
   ```
-  4. All of the files related to this project are in the [/vagrant/news](https://github.com/mdjolieca/fullstack-nanodegree-vm/tree/master/vagrant/news) directory
+  4. All of the files related to this project are in the [/vagrant/catalog](https://github.com/mdjolieca/fullstack-nanodegree-vm/tree/master/vagrant/catalog) directory
   
   
 #### Setting up the database:
 
-   1. Unzip the /vagrant/news/newsdata.zip  file.  
+   1. run the /vagrant/catalog/database_setup.py  script:
+    ```
+    $ python3 database_setup.py
+  ```
   
-   2. Load the data into the news database using the newsdata.sql script from step 1 zip file:
+   2. Load the data into the catalog database using the populate_db.py script. Before running this 
+   script edit line [16](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/catalog/populate_db.py#L16)
+   to include the gmail email adress that will be used for testing. Do not worry about the user name or picture. They will be 
+   updated on firts login. After you have edited the populate_db.py script run it:
   
   ``` 
-    psql -d news -f newsdata.sql
+    $ vi populate_db.py   # besure to update line 16 as mentioned above
+    $ python3 populate_db.py
   ```
-   3. (Optional)Use `psql -d news` to connect to database and veiw the table structure.
-      The database includes three tables:
-        * The authors table includes information about the authors of articles.
-        * The articles table includes the articles themselves.
-        * The log table includes one entry for each time a user has accessed the site.
+   3. Google Oauth Setup
+        1. Go to your app's page in the Google APIs Console — https://console.developers.google.com/apis
+        2. At top of dashboard home click 
+        2. Choose Credentials from the menu on the left.
+        3. Create an OAuth Client ID.
+        4. When you're presented with a list of application types, choose Web applicationite.
   
  
-  #### Generate the reports:
-  1. From the /vagrant/news directory inside the virtual machine, run::
-  ```
-    $ python3  newsreports.py
-  ```
-  results should be identical to the thoose the [sampleReport](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/news/sampleReport)  file provided.
+  #### Run the Catalog App:
+
  
