@@ -58,8 +58,8 @@ edit and delete their own categories and items.
   
    2. Load the data into the catalog database using the populate_db.py script. Before running this 
    script edit line [16](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/catalog/populate_db.py#L16)
-   to include the gmail email adress that will be used for testing. Do not worry about the user name or picture. They will be 
-   updated on firts login. After you have edited the populate_db.py script run it:
+   to include the gmail email adress that will be used for testing. The user name or picture will be 
+   updated on first login. 
   
   ``` 
     $ vi populate_db.py   # besure to update line 16 as mentioned above
@@ -67,9 +67,12 @@ edit and delete their own categories and items.
   ```
   
    #### Google Oauth Setup:
-        1. Go to your app's page in the Google APIs Console — https://console.developers.google.com/apis
+        1. [GO to Google APIs Console —](https://console.developers.google.com/)
+        2. Follow the instruction is these screen captures:
+          ![alt text](/screencap/Capture.PNG "Description goes here")
         2. At top of dashboard home click 
         2. Choose Credentials from the menu on the left.
+        
         3. Create an OAuth Client ID.
         4. When you're presented with a list of application types, choose Web applicationite.
   
