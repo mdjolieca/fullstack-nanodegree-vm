@@ -67,11 +67,10 @@ edit and delete their own categories and items.
   ```
   
 #### Google Oauth Setup:
-   1. [GO to Google APIs Console —](https://console.developers.google.com/)
-   2. Follow the instruction is these screen captures:
+   [GO to Google APIs Console —](https://console.developers.google.com/) and click Select a project.  
    </br>
    <img center="left" src="screencap/Capture.PNG">
-   </br>   
+   </br> 
    <img center="left" src="screencap/Capture1.PNG">
    </br>
    <img center="left" src="screencap/Capture2.PNG">
@@ -89,6 +88,9 @@ edit and delete their own categories and items.
    <img center="left" src="screencap/Capture8.PNG">
    </br>
    <img center="left" src="screencap/Capture9.PNG">
+   
+   This last set is to download the new created client secret file.
+   Rname the file to client_secret.json 
   
   
      
