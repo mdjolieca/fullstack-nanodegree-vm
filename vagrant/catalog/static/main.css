@@ -16,11 +16,11 @@
       margin: 2%;
    }
 
-    .intro-about-me-h3 {
+    .intro-description-h3 {
       font-size: 18px;
     }
 
-    .intro-about-me-p {
+    .intro-description-p {
       font-size: 14px;
     }
 
@@ -42,11 +42,11 @@
       margin: 0;
    }
 
-    .intro-about-me-h3 {
+    .intro-description-h3 {
       font-size: 22px;
     }
 
-    .intro-about-me-p {
+    .intro-description-p {
       font-size: 18px;
     }
 }
@@ -158,13 +158,13 @@ body {
 }
 
 
-.intro-about-me-div {
+.intro-description-div {
    float: right;
    max-width: 75%;
    margin: 2%;
 }
 
-.intro-about-me-h3 {
+.intro-description-h3 {
    max-width: 100%;
    height: auto;
    margin: 2%;
@@ -175,7 +175,7 @@ body {
    vertical-align: baseline;
 }
 
-.intro-about-me-p {
+.intro-description-p {
    max-width: 100%;
    height: auto;
    margin: 2%;
@@ -186,16 +186,16 @@ body {
    vertical-align: baseline;
 }
 
-.intro-about-me-a {
+.intro-description-a {
    color: #7d97ad;
 }
 
-.portfolio-work {
+.genericItems {
    width: 100%;
    height: auto;
 }
 
-.portfolio-padding {
+.genericItems-padding {
    background-color: lightskyblue;
    margin-top: 2%;
    margin-bottom: 2%;
@@ -203,13 +203,13 @@ body {
    border: solid 1px #dbe2e8 !important;
 }
 
-.portfolio-menu {
+.genericItems-menu {
    display: inline;
    max-width: 100%;
    margin: 2%;
 }
 
-.portfolio-menu-item {
+.genericItems-menu-item {
    max-width: 100%;
    height: auto;
    text-align: center;
@@ -222,7 +222,7 @@ body {
    border: solid 1px #dbe2e8 !important;
 }
 
-.portfolio-menu-item1 {
+.genericItems-menu-item1 {
    max-width: 100%;
    height: auto;
    text-align: left;
@@ -235,7 +235,7 @@ body {
    border: solid 1px #dbe2e8 !important;
 }
 
-.portfolio-menu-item2 {
+.genericItems-menu-item2 {
    max-width: 100%;
    height: auto;
    text-align: left;
@@ -248,7 +248,7 @@ body {
 
 }
 
-.portfolio-menu-input {
+.genericItems-menu-input {
    font: 15px "Open Sans", sans-serif;
    display: inline;
    width: 100%;
@@ -258,15 +258,15 @@ body {
    font-weight: bolder;
 }
 
-.portfolio-menu-p {
+.genericItems-menu-p {
    font-weight: bolder;
 }
 
-.portfolio-menu-button {
+.genericItems-menu-button {
    margin: 2%;
 }
 
-.portfolio-menu-logo {
+.genericItems-menu-logo {
    max-width: 100%;
    height: auto;
 }

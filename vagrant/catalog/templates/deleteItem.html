@@ -16,27 +16,27 @@
       </a>
    </div> 
  
-<!-- portfolio work section contains header and flex box menu of work -->
-  <div id="portfolio-work" class="portfolio-work">
-    <div class="portfolio-padding padding">
+<!-- genericItems section contains header and flex box menu of work -->
+  <div id="genericItems" class="genericItems">
+    <div class="genericItems-padding padding">
      <!-- flex box menu using figures with links within fig captions -->
-     <div id="portfolio-menu" class="portfolio-menu"> 
-      <form class="portfolio-menu" action="{{url_for('deleteItem', item_id=item.id )}}" method = 'POST'>
-       <div class="portfolio-menu-item2">
+     <div id="genericItems-menu" class="genericItems-menu"> 
+      <form class="genericItems-menu" action="{{url_for('deleteItem', item_id=item.id )}}" method = 'POST'>
+       <div class="genericItems-menu-item2">
         <h2> Are you sure you want to delete {{item.name}}? </h2>
         </div>
         <!-- menu item -->
-      <button class="portfolio-menu-button" type="submit">Delete</button>
-      <button  class="portfolio-menu-button" type="button">
+      <button class="genericItems-menu-button" type="submit">Delete</button>
+      <button  class="genericItems-menu-button" type="button">
       <a href= '{{url_for('showItem', item_id=item.id)}}'>Cancel</a>
        </button>
       </br>
      </form>
       <!--end menu of work items -->
       </div>
-    <!--end portfolio padding div -->
+    <!--end genericItem padding div -->
    </div>
-  <!-- end portfolio work section -->
+  <!-- end genericItems section -->
   </div>
 
 </body>

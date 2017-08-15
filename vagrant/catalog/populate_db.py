@@ -13,7 +13,7 @@ session = DBSession()
 
 # Create sample users udate email with your gmail address.
 # the user name and picture will be updated on first login
-User0 = User(name="test user ", email="Your_email@gmail.com",
+User0 = User(name="test user ", email="YourGmail@gmail.com",
              picture=' ')
 session.add(User0)
 session.commit()
@@ -24,8 +24,8 @@ session.add(User1)
 session.commit()
 
 # generic Category description
-description = "A great description of this category will" +
-" go here but for now this is a Sample description."
+description =  str("A great description of this category will" +
+" go here but for now this is a Sample description.")
 
 # Create Sample Categories with 5 items in each,
 # alternating between user_ids (see above) for Category owner and no owner

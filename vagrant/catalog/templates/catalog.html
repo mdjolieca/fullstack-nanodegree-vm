@@ -20,15 +20,15 @@
        </button>
      {% endif %}
   </div>
-  <!-- portfolio work section contains header and flex box menu of work -->
-  <div id="portfolio-work" class="portfolio-work">
-    <div class="portfolio-padding padding">
+  <!-- genericItems section contains header and flex box menu of work -->
+  <div id="genericItems" class="genericItems">
+    <div class="genericItems-padding padding">
      <!-- flex box menu using figures with links within fig captions -->
-      <div id="portfolio-menu" class="portfolio-menu">
-         <h3 class="intro-about-me-h3"> Catalog Categories </h3>
+      <div id="genericItems-menu" class="genericItems-menu">
+         <h3 class="intro-description-h3"> Catalog Categories </h3>
         <!-- menu item -->
         {% for c in categories %}
-        <div class="portfolio-menu-item">
+        <div class="genericItems-menu-item">
           <a href='{{url_for('showCategory', category_id = c.id)}}'>
             {{c.name}}
           </a>
@@ -37,9 +37,9 @@
         <!-- menu item -->
       <!--end menu of work items -->
       </div>
-    <!--end portfolio padding div -->
+    <!--end genericItem padding div -->
    </div>
-  <!-- end portfolio work section -->
+  <!-- end genericItems section -->
   </div>
 
 

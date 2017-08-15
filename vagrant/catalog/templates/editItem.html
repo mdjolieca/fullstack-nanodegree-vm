@@ -15,39 +15,39 @@
       </a>
    </div>
 
-<!-- portfolio work section contains header and flex box menu of work -->
-  <div id="portfolio-work" class="portfolio-work">
-    <div class="portfolio-padding padding">
+<!-- genericItems section contains header and flex box menu of work -->
+  <div id="genericItems" class="genericItems">
+    <div class="genericItems-padding padding">
      <!-- flex box menu using figures with links within fig captions -->
-     <div id="portfolio-menu" class="portfolio-menu"> 
-      <form class="portfolio-menu" action="{{url_for('editItem', item_id=item.id )}}" method = 'POST'>
+     <div id="genericItems-menu" class="genericItems-menu"> 
+      <form class="genericItems-menu" action="{{url_for('editItem', item_id=item.id )}}" method = 'POST'>
        <!-- menu item -->
-       <div class="portfolio-menu-item2">
-           <p class="portfolio-menu-p">Name:</p>
-          <input class="portfolio-menu-input" type ='text' name='name' value='{{item.name }}' placeholder = '{{item.name }}'/>
+       <div class="genericItems-menu-item2">
+           <p class="genericItems-menu-p">Name:</p>
+          <input class="genericItems-menu-input" type ='text' name='name' value='{{item.name }}' placeholder = '{{item.name }}'/>
        </div>
-       <div class="portfolio-menu-item2">
-           <p class="portfolio-menu-p">Price:</p>
-          <input class="portfolio-menu-input" type="number" min="0.01" step="0.01" value='{{item.price }}' name='price' placeholder='{{item.price }}'/>
+       <div class="genericItems-menu-item2">
+           <p class="genericItems-menu-p">Price:</p>
+          <input class="genericItems-menu-input" type="number" min="0.01" step="0.01" value='{{item.price }}' name='price' placeholder='{{item.price }}'/>
         </div>
-        <div class="portfolio-menu-item2">
-           <p class="portfolio-menu-p">Description:</p>
-          <textarea class="portfolio-menu-input" rows="5" col="60"; name='description' value='{{item.description }}'>
+        <div class="genericItems-menu-item2">
+           <p class="genericItems-menu-p">Description:</p>
+          <textarea class="genericItems-menu-input" rows="5" col="60"; name='description' value='{{item.description }}'>
           {{item.description }}
          </textarea>
         </div>
         <!-- menu item -->
-      <button class="portfolio-menu-button" type="submit">Submit Edit</button>
-      <button  class="portfolio-menu-button" type="button">
+      <button class="genericItems-menu-button" type="submit">Submit Edit</button>
+      <button  class="genericItems-menu-button" type="button">
        <a href= '{{url_for('showItem', item_id=item.id)}}'>Cancel</a>
       </button>
       </br>
      </form>
       <!--end menu of work items -->
       </div>
-    <!--end portfolio padding div -->
+    <!--end genericItem padding div -->
    </div>
-  <!-- end portfolio work section -->
+  <!-- end genericItems section -->
   </div>
 
 </body>
