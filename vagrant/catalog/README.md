@@ -3,9 +3,9 @@
 
 ### Project Description
 
-You will develop an application that provides a list of items within a variety of categories as well as
+Develop an application that provides a list of items within a variety of categories as well as
 provide a user registration and authentication system. Registered users will have the ability to post, 
-edit and delete their own categories and items.
+edit and delete their own categories and items. 
 
 1. Why This Project?
     Modern web applications perform a variety of functions and provide amazing features and utilities to their
@@ -32,17 +32,15 @@ edit and delete their own categories and items.
   2. Download or Clone [fullstack-nanodegree-vm](https://github.com/mdjolieca/fullstack-nanodegree-vm) repository.
   
 #### Launching the Virtual Machine:
-  1. Launch the Vagrant VM inside Vagrant sub-directory in the downloaded fullstack-nanodegree-vm repository using command:
-  
-  ```
+  1. Launch the Vagrant VM inside the Vagrant sub-directory in the downloaded fullstack-nanodegree-vm repository using  this command:
+   ```
     $ vagrant up
   ```
-  2. Then Log into this using command:
-  
+  2. Then Log into vagrant:
   ```
     $ vagrant ssh
   ```
-  3. Change directory to /vagrant/news and look around with ls.
+  3. Change directories to /vagrant/catalog
   ```
     $ cd /vagrant/catalog
   ```
@@ -51,17 +49,17 @@ edit and delete their own categories and items.
   
 #### Setting up the database:
 
-   1. run the /vagrant/catalog/database_setup.py  script:
+   1. run the /vagrant/catalog/database_setup.py script.
+      After execution of this file you will see a catalogue.db file.:
     ```
     $ python3 database_setup.py
     ```
   
-   2. Load the data into the catalog database using the populate_db.py script. **Before running this 
+   2. Load the data into the catalogue database using the populate_db.py script. **Before running this 
    script edit line [16](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/catalog/populate_db.py#L16)
    to include the gmail email adress that will be used for testing.** The user name or picture will be 
    updated on first login. 
-  
-  ``` 
+   ``` 
     $ vi populate_db.py   # besure to update line 16 as mentioned above
     $ python3 populate_db.py
   ```
