@@ -51,13 +51,14 @@ edit and delete their own categories and items.
 
    1. run the /vagrant/catalog/database_setup.py script.
       After execution of this file you will see a catalogue.db file.:
+  
     ```
     $ python3 database_setup.py
     ```
   
    2. Load the data into the catalogue database using the populate_db.py script. **Before running this 
    script edit line [16](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/catalog/populate_db.py#L16)
-   to include the gmail email adress that will be used for testing.** The user name or picture will be 
+   to include the gmail email adress that will be used for testing.** The user name and picture will be 
    updated on first login. 
    ``` 
     $ vi populate_db.py   # besure to update line 16 as mentioned above
@@ -100,4 +101,4 @@ is ****************************.apps.googleusercontent.com .
     $ python3 application.py
   ```
   
-## Applicaiton HomePage##   http://localhost:5000/catalog/
+  **Applicaiton HomePage**   http://localhost:5000/catalog/
