@@ -56,9 +56,9 @@ edit and delete their own categories and items.
     $ python3 database_setup.py
     ```
   
-   2. Load the data into the catalog database using the populate_db.py script. Before running this 
+   2. Load the data into the catalog database using the populate_db.py script. **Before running this 
    script edit line [16](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/catalog/populate_db.py#L16)
-   to include the gmail email adress that will be used for testing. The user name or picture will be 
+   to include the gmail email adress that will be used for testing.** The user name or picture will be 
    updated on first login. 
   
   ``` 
@@ -67,7 +67,7 @@ edit and delete their own categories and items.
   ```
   
 #### Google Oauth Setup:
-   [GO to Google APIs Console —](https://console.developers.google.com/) and click Select a project.  
+  1. [GO to Google APIs Console —](https://console.developers.google.com/) and click Select a project.  
    </br>
    <img center="left" src="screencap/Capture.PNG">
    </br> 
@@ -89,8 +89,11 @@ edit and delete their own categories and items.
    </br>
    <img center="left" src="screencap/Capture9.PNG">
    
-   This last set is to download the new created client secret file.
-   Rname the file to client_secret.json 
+  2. Download the newly created client secret file to /vagrant/catalog home directory and rename it.
+      **Rename the file to client_secret.json** . (if you want to use a different file name [edit appliction.py file](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/catalog/application.py#L34)
+      
+  3.  You must also edit the login.html file to include the [client ID](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/catalog/templates/login.html#L23)
+  
   
   
      
