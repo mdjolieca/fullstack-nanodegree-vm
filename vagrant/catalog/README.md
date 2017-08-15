@@ -52,9 +52,9 @@ edit and delete their own categories and items.
    1. run the /vagrant/catalog/database_setup.py script.
       After execution of this file you will see a catalogue.db file.:
   
-    ```
+  ```
     $ python3 database_setup.py
-    ```
+  ```
   
    2. Load the data into the catalogue database using the populate_db.py script. **Before running this 
    script edit line [16](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/catalog/populate_db.py#L16)
