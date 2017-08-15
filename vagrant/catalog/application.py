@@ -35,6 +35,28 @@ CLIENT_ID = json.loads(
 APPLICATION_NAME = 'Catalogue App'
 
 
+# JSON API
+# View a single item
+@app.route('/item/<int:item_id>/JSON')
+def itemJSON(item_id):
+    item = Item.getItem(item_id, dbSession)
+    return jsonify(item=item.serialize)
+
+
+# View all items in a category
+@app.route('/category/<int:category_id>/JSON')
+def categoryJSON(category_id):
+    items = Item.getItems(category_id, dbSession)
+    return jsonify(categories=[i.serialize for i in items])
+
+
+# View all Categories within catalog
+@app.route('/catalog/JSON')
+def catalogJSON():
+    categories = Category.getCategories(dbSession)
+    return jsonify(categories=[c.serialize for c in categories])
+
+
 @app.route('/login')
 def login():
     # Create anti-forgery state token
