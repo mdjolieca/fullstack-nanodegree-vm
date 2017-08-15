@@ -92,14 +92,14 @@ edit and delete their own categories and items.
   2. Download the newly created client secret file to /vagrant/catalog home directory and rename it.
       **Rename the file to client_secret.json** . (if you want to use a different file name [edit appliction.py file](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/catalog/application.py#L34)
       
-  3.  You must also edit the login.html file to include the [client ID](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/catalog/templates/login.html#L23)
-  
-  
-  
-     
-
+  3.  You must also edit the login.html file to include the [client ID](https://github.com/mdjolieca/fullstack-nanodegree-vm/blob/master/vagrant/catalog/templates/login.html#L23) The client_ID can be found in the client_secret.json file. Format
+is ****************************.apps.googleusercontent.com .
   
  
 #### Run the Catalog App:
 
- 
+  ```
+    $ python3 application.py
+  ```
+  
+## Applicaiton HomePage##   http://localhost:5000/catalog/
